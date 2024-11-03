@@ -46,14 +46,14 @@ func call_many_delay(num_requests int, delay_micros int) bool {
 			time.Sleep(delay)
 		}
 		if get_data() == -1 {
-			fmt.Printf("Failed sequential connections w/delay in %d ms after %d requests \n", delay, i)
+			fmt.Printf("Failed sequential connections w/delay %d us after %d requests \n", delay_micros, i)
 			return false
 		}
 	}
 
 	taken := time.Since(t1).Milliseconds()
 	regs_p_s := (num_requests * 1000) / int(taken)
-	fmt.Printf("Finished sequential connections w/delay in %d ms = %d reqs/s\n", taken, regs_p_s)
+	fmt.Printf("Finished sequential connections w/delay %d us in %d ms = %d reqs/s\n", delay_micros, taken, regs_p_s)
 	return true
 }
 
