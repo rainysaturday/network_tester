@@ -10,7 +10,7 @@ var request_counter = 0
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 	size_param := r.URL.Query()["size"]
-	var size int64 = 0
+	var size int64 = 1
 	if len(size_param) > 0 {
 		size_parsed, err := strconv.ParseInt(size_param[0], 10, 64)
 		if err == nil {
